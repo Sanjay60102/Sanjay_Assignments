@@ -206,7 +206,7 @@
                 foreach (var student in filteredStudents)
                 {
                     DisplayStudentInfo(student);
-                }
+                }\
             }
         }
 
