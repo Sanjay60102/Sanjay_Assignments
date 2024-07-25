@@ -1,4 +1,5 @@
 -- Create Department table
+use Assignment2
 CREATE TABLE Department (
     Dept_no VARCHAR(2) PRIMARY KEY,
     Dept_name VARCHAR(50),
@@ -70,3 +71,19 @@ INSERT INTO Works_on (Emp_no, Project_no, Job, Enter_date) VALUES
 (28559, 'p2', 'Clerk', '1992-02-01'),
 (9031, 'p3', 'Clerk', '1997-11-15'),
 (29346, 'p1', 'Clerk', '1998-01-04');
+
+select * from Department
+select * from Employee
+select * from Project
+
+--Get all row of the works_on table.
+select * from Works_on
+
+--Get the employee numbers for all clerks
+select Emp_no from Works_on where Job='Clerk'
+
+--Get the employee numbers for employees working in project p2, and having employee numbers smaller than 10000.
+select Emp_no from Works_on where Project_no='p2' and Emp_no<10000
+
+--Get the employee numbers for all employees who didn’t enter their project in 1998
+select Emp_no from Works_on where YEAR(Enter_date)!=1998
