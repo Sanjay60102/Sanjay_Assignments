@@ -76,14 +76,44 @@ select * from Department
 select * from Employee
 select * from Project
 
---Get all row of the works_on table.
+--1.Get all row of the works_on table.
 select * from Works_on
 
---Get the employee numbers for all clerks
+--2.Get the employee numbers for all clerks
 select Emp_no from Works_on where Job='Clerk'
 
---Get the employee numbers for employees working in project p2, and having employee numbers smaller than 10000.
+--3.Get the employee numbers for employees working in project p2, and having employee numbers smaller than 10000.
 select Emp_no from Works_on where Project_no='p2' and Emp_no<10000
 
---Get the employee numbers for all employees who didn’t enter their project in 1998
+--4.Get the employee numbers for all employees who didn’t enter their project in 1998
 select Emp_no from Works_on where YEAR(Enter_date)!=1998
+
+--- 5. . Get the employee numbers for all employees who have a leading job( i.e., Analyst or Manager) in project p1
+select emp_no from Works_on where job in('analyst','manager') and project_no ='p1'
+
+--- 6. Get the enter dates for all employess in project p2 whose jobs have not been determined yet
+select enter_date from Works_on where project_no ='p2' and job is null
+
+--- 7.Get the employee numbers and last names of all employees whose first names contain two letter t’s
+select emp_no,emp_lname from Employee where emp_fname like '%t%t%'
+
+--- 8. . Get the employee numbers and first names of all employees whose last names have a letter o or a as the second character and end with the letters es.
+select emp_no ,emp_fname from employee where (emp_fname like '_o%' or emp_fname like '_a%') and  emp_fname like '%es'
+
+---9.  Get the employee numbers of all employees whose departments are located in Seattle 
+select e.emp_no from Employee e join Department d on e.dept_no =d.Dept_no where d.location ='seattle'
+
+--- 10.Find the last and first names of all employess who entered their projects on 04.01.1998
+select e.emp_fname,e.emp_lname from Employee e join Works_on w on e.emp_no =w.emp_no where enter_date ='04-01-1998'
+
+--- 11. Group all departments using their locations
+select location ,string_agg(dept_name,',') as Departments from Department group by location 
+
+--- 12. Find the biggest employee number
+select max(emp_no) from Works_on 
+
+--- 13. Get the jobs that are done by more than two employees.
+select job from works_on where job is not null  group by job having count(emp_no)>2 
+
+--- 14. Find the employee numbers of all employees who are clerks or work for department d3
+select emp_no from Employee where emp_no in (select emp_no  from Works_on where job='clerk') or dept_no ='d3'
