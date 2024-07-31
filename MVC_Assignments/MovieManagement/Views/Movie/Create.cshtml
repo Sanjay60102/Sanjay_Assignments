@@ -1,0 +1,47 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div>
+    <form action="Add" method="post">
+        <table class="table">
+            <tr>
+                <td>MovieId</td>
+                <td>
+                    <input type="number" asp-for="MovieId"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <input type="text" asp-for="Title"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Actor</td>
+                <td>
+                    <input type="text" asp-for="Actor"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Language</td>
+                <td>
+                    <input type="text" asp-for="language"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Director</td>
+                <td>
+                    <input type="text" asp-for="Director"/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit"/>
+                </td>
+            </tr>
+        </table>
+
+    </form>
+</div>

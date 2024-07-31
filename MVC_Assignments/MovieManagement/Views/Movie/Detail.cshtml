@@ -1,0 +1,22 @@
+﻿@model Movie
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div>
+    @if (Model != null)
+    {
+        <pre>
+            MovieId: @Model.MovieId
+            Title: @Model.Title
+            Actor: @Model.Actor
+            Language: @Model.language
+            Director: @Model.Director
+        </pre>
+    }
+    else
+    {
+        <h3>Movie Not Found</h3>
+    }
+    <a asp-action="Index">Back</a>
+</div>
