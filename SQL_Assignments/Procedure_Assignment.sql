@@ -40,7 +40,7 @@ begin
 select * from Product where pname=@name
 end
 
-exec GetProductByName 'adaptor'
+exec GetProductByName 'Chocolate'
 
 -- 3. GetAllProductsBy>input Price
 
@@ -49,7 +49,7 @@ as
 begin
 select * from Product where price>@price
 end
-exec GetAllProductsByPrice1 '100'
+exec GetAllProductsByPrice1 '10'
 
 
 -- 4. DeleteProductById
@@ -66,7 +66,6 @@ as
 begin
 update Product set price=1000,stock =100 where pid=@id
 end
-
 exec UpdateProduct 4
 
 select * from Product
