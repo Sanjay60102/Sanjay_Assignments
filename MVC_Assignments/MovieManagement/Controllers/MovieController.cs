@@ -6,7 +6,7 @@ namespace MovieManagement.Controllers
     public class MovieController : Controller
     {
         MovieRepository movieRepository;
-        public MovieController()
+        public MovieController() 
         {
             movieRepository = new MovieRepository();
         }
