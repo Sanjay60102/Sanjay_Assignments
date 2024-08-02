@@ -21,6 +21,7 @@ end
 exec InsertProduct 'Chocolate', 85, 125
 exec InsertProduct 'Biscuit', 20, 30
 
+
 select * from Product
 
 
