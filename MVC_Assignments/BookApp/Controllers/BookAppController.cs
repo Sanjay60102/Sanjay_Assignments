@@ -18,7 +18,6 @@ namespace BookApp.Controllers
         }
         [Route("Create")]
         [HttpGet]
-
         public IActionResult Create()
         {
             return View();
