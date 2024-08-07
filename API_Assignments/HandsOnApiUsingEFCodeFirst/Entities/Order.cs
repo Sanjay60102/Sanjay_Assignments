@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace HandsOnApiUsingEFCodeFirst.Entities
 {
@@ -15,8 +16,10 @@ namespace HandsOnApiUsingEFCodeFirst.Entities
         public int UserId { get; set; }
 
         //Navigation Peoperty
-        public Product Product { get; set; }
+        [JsonIgnore]
+        public Product? Product { get; set; }
         [ForeignKey("UserId")] //ForeignKey
-        public User User { get; set; }
+        [JsonIgnore]
+        public User? User { get; set; }
     }
 }

@@ -4,15 +4,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HandsOnApiUsingEFCodeFirst.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : Controller
+    public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
-        public ProductController()
+
+        public ProductController(IProductRepository productRepository)
         {
-            _productRepository = new ProductRepository();
+            _productRepository = productRepository;
         }
+
+        //public ProductController()
+        //{
+        //    _productRepository = new ProductRepository();
+        //}
         //Get Endpoints
         [HttpGet, Route("GetProducts")]
         public IActionResult GetAll() //Get All product details

@@ -1,26 +1,41 @@
 ﻿using HandsOnApiUsingEFCodeFirst.Entities;
 using HandsOnApiUsingEFCodeFirst.Repositories;
+using HandsOnAPIUsingEFCodeFirst.DTOS;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HandsOnApiUsingEFCodeFirst.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class OrderController : Controller
+    public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
-        public OrderController()
+
+        public OrderController(IOrderRepository orderRepository)
         {
-            _orderRepository = new OrderRepository();
+            _orderRepository = orderRepository;
         }
-        [HttpPost, Route("AddOrder")]
-        public IActionResult MakeOrder(Order order)
+
+        //public OrderController()
+        //{
+        //    _orderRepository = new OrderRepository();
+        //}
+        [HttpPost, Route("MakeOrder")]
+        public IActionResult MakeOrder(OrderDTO orderDto)
         {
+            //assing orderDto to order entity
+            var order = new Order()
+            {
+                OrderId = Guid.NewGuid(),
+                ProductId = orderDto.ProductId,
+                UserId = orderDto.UserId
+            };
+
             _orderRepository.MakeOrder(order);
-            return StatusCode(200, order);
+            return Ok(order);
         }
         [HttpGet, Route("GetOrder/{id}")]
-        public IActionResult GetOrder([FromRoute]int id)
+        public IActionResult GetOrder([FromRoute]Guid id)
         {
             var order = _orderRepository.GetOrder(id);
             if (order != null)
