@@ -41,7 +41,7 @@ namespace HandsOnApiUsingEFCodeFirst.Repositories
 
         public void Update(Product product)
         {
-            var products = _context.Products.Find(product);
+            _context.Products.Update(product);
             _context.SaveChanges();
         }
     }

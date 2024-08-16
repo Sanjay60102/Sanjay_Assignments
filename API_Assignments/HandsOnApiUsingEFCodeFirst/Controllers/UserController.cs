@@ -46,7 +46,7 @@ namespace HandsOnApiUsingEFCodeFirst.Controllers
                 {
                     authReponse = new AuthReponse()
                     {
-                        UserId = user.UserId,
+                        UserId = user.UserId,   
                         Role = user.Role,
                         Token = GetToken(user),
                     };

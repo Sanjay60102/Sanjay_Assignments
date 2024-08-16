@@ -15,7 +15,7 @@ namespace HandsOnApiUsingEFCodeFirst.Entities
 
         public int UserId { get; set; }
 
-        //Navigation Peoperty
+        //Navigation Property
         [JsonIgnore]
         public Product? Product { get; set; }
         [ForeignKey("UserId")] //ForeignKey

@@ -4,6 +4,7 @@ using HandsOnApiUsingEFCodeFirst.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HandsOnApiUsingEFCodeFirst.Migrations
 {
     [DbContext(typeof(ECommContext))]
-    partial class ECommContextModelSnapshot : ModelSnapshot
+    [Migration("20240808140959_CreateTwitterDB")]
+    partial class CreateTwitterDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

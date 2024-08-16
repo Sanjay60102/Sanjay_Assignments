@@ -43,7 +43,7 @@ namespace HandsOnApiUsingEFCodeFirst.Controllers
         public IActionResult Add([FromBody]Product product)
         {
             _productRepository.Add(product);
-            return StatusCode(200, product);
+            return Ok(product);
         }
         //Post Endpoint
         [HttpPut, Route("EditProduct")]
@@ -54,7 +54,7 @@ namespace HandsOnApiUsingEFCodeFirst.Controllers
             return StatusCode(200, product);
         }
         //Delete Endpoint
-        [HttpDelete, Route("DeleteProduct")]
+        [HttpDelete, Route("DeleteProduct/{id}")]
         [Authorize(Roles ="Admin")]
         public IActionResult Delete([FromQuery]int id) //Delete Product using id
         {

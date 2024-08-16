@@ -19,6 +19,7 @@ namespace HandsOnApiUsingEFCodeFirst
             builder.Services.AddTransient<IProductRepository, ProductRepository>();
             builder.Services.AddTransient<IUserRepository, UserRepository>();
             builder.Services.AddTransient<IOrderRepository, OrderRepository>();
+            builder.Services.AddTransient<IProductAsyncRepository, ProductAsyncRepository>();
             builder.Services.AddControllers();
 
             //Configure JWT to valie token data
