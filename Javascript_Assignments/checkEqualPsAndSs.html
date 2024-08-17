@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Equal Number of P's and S's</title>
+    <script>
+        function checkEqualPsAndSs(str) {
+            let pCount = 0;
+            let sCount = 0;
+
+            // Loop through each character in the string
+            for (let char of str.toLowerCase()) {
+                if (char === 'p') {
+                    pCount++;
+                } else if (char === 's') {
+                    sCount++;
+                }
+            }
+
+            // Compare counts
+            return pCount === sCount;
+        }
+
+        function checkString() {
+            const inputString = prompt("Enter a string:");
+            const isEqual = checkEqualPsAndSs(inputString);
+
+            if (isEqual) {
+                alert("True.");
+            } else {
+                alert("False.");
+            }
+        }
+    </script>
+</head>
+<body onload="checkString()">
+
+<h1>Check Equal Number of P's and S's</h1>
+<p>Check the prompt to see the result.</p>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Day and Time</title>
+    <script>
+        function formatTimeUnit(unit) {
+            return unit < 10 ? '0' + unit : unit;
+        }
+
+        function getCurrentDayAndTime() {
+            const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const now = new Date();
+
+            const day = daysOfWeek[now.getDay()];
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+
+            const formattedHours = hours % 12 || 12; // Convert to 12-hour format
+            const period = hours >= 12 ? 'PM' : 'AM'; // Determine AM/PM
+
+            const timeString = `${formattedHours} ${period} : ${formatTimeUnit(minutes)} : ${formatTimeUnit(seconds)}`;
+
+            return `Today is : ${day}.<br>Current time is : ${timeString}`;
+        }
+
+        function displayTime() {
+            document.getElementById('timeDisplay').innerHTML = getCurrentDayAndTime();
+        }
+    </script>
+</head>
+<body onload="displayTime()">
+
+<h1>Current Day and Time</h1>
+<p id="timeDisplay"></p>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swap First and Last Elements of Array</title>
+    <script>
+        function swapFirstLast(arr) {
+            if (arr.length <= 1) {
+                return arr; // If the array length is 1 or less, return the array as is.
+            }
+
+            // Swap the first and last elements
+            let temp = arr[0];
+            arr[0] = arr[arr.length - 1];
+            arr[arr.length - 1] = temp;
+
+            return arr;
+        }
+
+        function swapArrayElements() {
+            let inputArray = prompt("Enter an array of integers (comma-separated):");
+
+            // Convert the input string to an array of integers
+            let arr = inputArray.split(",").map(Number);
+
+            // Swap the first and last elements
+            let swappedArray = swapFirstLast(arr);
+
+            // Display the result
+            alert("Array after swapping: " + swappedArray.join(", "));
+        }
+    </script>
+</head>
+<body onload="swapArrayElements()">
+
+<h1>Swap First and Last Elements of Array</h1>
+<p>Check the prompt to see the result after swapping the first and last elements.</p>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse a Number</title>
+    <script>
+        function reverseNumber(num) {
+            // Convert the number to a string
+            let str = num.toString();
+            
+            // Reverse the string using built-in functions
+            let reversedStr = str.split('').reverse().join('');
+            
+            // Convert the reversed string back to a number
+            return parseInt(reversedStr, 10);
+        }
+
+        function displayReversedNumber() {
+            let inputNumber = parseInt(prompt("Enter a number:"));
+
+            // Check if the input is a valid number
+            if (isNaN(inputNumber)) {
+                alert("Invalid input. Please enter a valid number.");
+                return;
+            }
+
+            let reversedNumber = reverseNumber(inputNumber);
+            alert("Reversed Number: " + reversedNumber);
+        }
+    </script>
+</head>
+<body onload="displayReversedNumber()">
+
+<h1>Reverse a Number</h1>
+<p>Check the prompt to see the reversed number.</p>
+
+</body>
+</html>

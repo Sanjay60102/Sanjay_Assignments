@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest Unique Substring</title>
+    <script>
+        function findLongestUniqueSubstring(str) {
+            let start = 0; // Start index of the window
+            let maxLength = 0; // Length of the longest substring
+            let maxSubstring = ''; // Longest substring without repeating characters
+            let charMap = {}; // Map to store character indices
+
+            for (let end = 0; end < str.length; end++) {
+                let char = str[end];
+                
+                if (charMap[char] >= start) {
+                    // If the character is repeating, move the start pointer
+                    start = charMap[char] + 1;
+                }
+
+                // Update the map with the current character's index
+                charMap[char] = end;
+
+                // Calculate the length of the current substring
+                let currentLength = end - start + 1;
+
+                // Update maxLength and maxSubstring if needed
+                if (currentLength > maxLength) {
+                    maxLength = currentLength;
+                    maxSubstring = str.substring(start, end + 1);
+                }
+            }
+
+            return maxSubstring;
+        }
+
+        function displayLongestUniqueSubstring() {
+            let inputString = prompt("Enter a string:");
+
+            // Ensure the input is a string
+            if (typeof inputString !== 'string') {
+                alert("Invalid input. Please enter a valid string.");
+                return;
+            }
+
+            let longestUniqueSubstring = findLongestUniqueSubstring(inputString);
+            alert("Longest Unique Substring: " + longestUniqueSubstring);
+        }
+    </script>
+</head>
+<body onload="displayLongestUniqueSubstring()">
+
+<h1>Find Longest Unique Substring</h1>
+<p>Check the prompt to see the longest substring without repeating characters.</p>
+
+</body>
+</html>

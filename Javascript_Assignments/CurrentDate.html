@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Date Formats</title>
+    <script>
+        function formatDate() {
+            const now = new Date();
+
+            const day = String(now.getDate()).padStart(2, '0'); // Pad day with leading zero
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Pad month with leading zero
+            const year = now.getFullYear();
+
+            // Formats
+            const format1 = `${month}-${day}-${year}`;
+            const format2 = `${month}/${day}/${year}`;
+            const format3 = `${day}-${month}-${year}`;
+            const format4 = `${day}/${month}/${year}`;
+
+            // Display the results
+            document.getElementById('format1').innerHTML = `mm-dd-yyyy: ${format1}`;
+            document.getElementById('format2').innerHTML = `mm/dd/yyyy: ${format2}`;
+            document.getElementById('format3').innerHTML = `dd-mm-yyyy: ${format3}`;
+            document.getElementById('format4').innerHTML = `dd/mm/yyyy: ${format4}`;
+        }
+    </script>
+</head>
+<body onload="formatDate()">
+
+<h1>Current Date Formats</h1>
+<p id="format1"></p>
+<p id="format2"></p>
+<p id="format3"></p>
+<p id="format4"></p>
+
+</body>
+</html>

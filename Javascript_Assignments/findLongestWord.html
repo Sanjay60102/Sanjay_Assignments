@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Longest Word</title>
+    <script>
+        function findLongestWord(str) {
+            // Split the string into an array of words
+            let words = str.split(' ');
+
+            // Use the reduce function to find the longest word
+            let longestWord = words.reduce((longest, current) => {
+                return (current.length > longest.length) ? current : longest;
+            }, '');
+
+            return longestWord;
+        }
+
+        function displayLongestWord() {
+            let inputString = prompt("Enter a string:");
+
+            // Ensure the input is a string
+            if (typeof inputString !== 'string') {
+                alert("Invalid input. Please enter a valid string.");
+                return;
+            }
+
+            let longestWord = findLongestWord(inputString);
+            alert("Longest Word: " + longestWord);
+        }
+    </script>
+</head>
+<body onload="displayLongestWord()">
+
+<h1>Find the Longest Word</h1>
+<p>Check the prompt to see the longest word in the input string.</p>
+
+</body>
+</html>

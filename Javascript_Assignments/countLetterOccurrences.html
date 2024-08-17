@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Letter Occurrences</title>
+    <script>
+        function countLetterOccurrences(str) {
+            // Normalize the string to lowercase
+            str = str.toLowerCase();
+            
+            // Create an object to store letter counts
+            let letterCounts = {};
+
+            // Iterate over each character in the string
+            for (let char of str) {
+                // Only count letters
+                if (char.match(/[a-z]/)) {
+                    if (letterCounts[char]) {
+                        letterCounts[char]++;
+                    } else {
+                        letterCounts[char] = 1;
+                    }
+                }
+            }
+
+            // Format the result
+            let result = Object.keys(letterCounts)
+                .map(key => `"${key}":${letterCounts[key]}`)
+                .join(",");
+
+            return result;
+        }
+
+        function displayLetterCounts() {
+            let inputString = prompt("Enter a string:");
+
+            // Ensure the input is a string
+            if (typeof inputString !== 'string') {
+                alert("Invalid input. Please enter a valid string.");
+                return;
+            }
+
+            let letterOccurrences = countLetterOccurrences(inputString);
+            alert("Letter Occurrences: " + letterOccurrences);
+        }
+    </script>
+</head>
+<body onload="displayLetterCounts()">
+
+<h1>Count Letter Occurrences</h1>
+<p>Check the prompt to see the letter occurrences in the input string.</p>
+
+</body>
+</html>

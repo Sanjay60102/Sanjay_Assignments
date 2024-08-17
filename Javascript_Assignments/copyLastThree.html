@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Last 3 Characters</title>
+    <script>
+        function createNewString(str) {
+            // Check if the string length is 3 or more
+            if (str.length < 3) {
+                return false;
+            }
+
+            // Get the last 3 characters of the string
+            const lastThreeChars = str.slice(-3);
+
+            // Create a new string with 4 copies of the last 3 characters
+            return lastThreeChars.repeat(4);
+        }
+
+        function showNewString() {
+            const inputString = prompt("Enter a string:");
+            const result = createNewString(inputString);
+
+            if (result) {
+                alert("New string: " + result);
+            } else {
+                alert("The string is too short. It must be at least 3 characters long.");
+            }
+        }
+    </script>
+</head>
+<body onload="showNewString()">
+
+<h1>Create New String from Last 3 Characters</h1>
+<p>Check the prompt to see the result.</p>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication and Division with Arrow Functions</title>
+    <script>
+        // Arrow function for multiplication
+        const multiply = (a, b) => a * b;
+
+        // Arrow function for division
+        const divide = (a, b) => b !== 0 ? a / b : "Cannot divide by zero";
+
+        function calculate() {
+            const num1 = parseFloat(prompt("Enter the first number:"));
+            const num2 = parseFloat(prompt("Enter the second number:"));
+
+            const multiplicationResult = multiply(num1, num2);
+            const divisionResult = divide(num1, num2);
+
+            alert(`Multiplication of ${num1} and ${num2} is: ${multiplicationResult}`);
+            alert(`Division of ${num1} by ${num2} is: ${divisionResult}`);
+        }
+    </script>
+</head>
+<body onload="calculate()">
+
+<h1>Multiplication and Division using Arrow Functions</h1>
+<p>Please check the prompts for results.</p>
+
+</body>
+</html>

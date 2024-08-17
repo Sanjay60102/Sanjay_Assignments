@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Letters in Alphabetical Order</title>
+    <script>
+        function sortAlphabetically(str) {
+            // Convert the string to an array of characters
+            let charArray = str.split('');
+            
+            // Sort the array in alphabetical order
+            charArray.sort();
+            
+            // Join the sorted array back into a string
+            return charArray.join('');
+        }
+
+        function displaySortedString() {
+            let inputString = prompt("Enter a string:");
+
+            // Ensure the input is a string
+            if (typeof inputString !== 'string') {
+                alert("Invalid input. Please enter a valid string.");
+                return;
+            }
+
+            let sortedString = sortAlphabetically(inputString);
+            alert("Sorted String: " + sortedString);
+        }
+    </script>
+</head>
+<body onload="displaySortedString()">
+
+<h1>Sort Letters in Alphabetical Order</h1>
+<p>Check the prompt to see the sorted string.</p>
+
+</body>
+</html>

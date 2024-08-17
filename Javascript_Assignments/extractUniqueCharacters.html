@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Unique Characters</title>
+    <script>
+        function extractUniqueCharacters(str) {
+            // Split the string into an array of characters
+            let chars = str.split('');
+            
+            // Use filter to keep only unique characters
+            let uniqueChars = chars.filter((char, index) => {
+                // Check if the character is the first occurrence
+                return chars.indexOf(char) === index;
+            });
+
+            // Join the unique characters back into a string
+            return uniqueChars.join('');
+        }
+
+        function displayUniqueCharacters() {
+            let inputString = prompt("Enter a string:");
+
+            // Ensure the input is a string
+            if (typeof inputString !== 'string') {
+                alert("Invalid input. Please enter a valid string.");
+                return;
+            }
+
+            let uniqueString = extractUniqueCharacters(inputString);
+            alert("Unique Characters: " + uniqueString);
+        }
+    </script>
+</head>
+<body onload="displayUniqueCharacters()">
+
+<h1>Extract Unique Characters</h1>
+<p>Check the prompt to see the unique characters extracted from the input string.</p>
+
+</body>
+</html>
